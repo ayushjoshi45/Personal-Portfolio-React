@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import Hero from "./Hero"
 import { Link } from "react-router-dom";
 function Header() {
   const [menu, openMenu] = useState(false);
   return (
+    <>
     <div className="text-white flex items-center justify-between mt-4">
       <div className="text-3xl">
   <span className="inline md:hidden">A</span>
@@ -16,7 +18,7 @@ function Header() {
           onClick={() => openMenu(!menu)}
         >
           <i
-            className={`ri-menu-${menu ? "unfold" : "fold"}-line text-3xl`}
+            className={`ri-menu-${menu ? "unfold" : "fold"}-line text-3xl `}
           ></i>
         </div>
 
@@ -27,6 +29,7 @@ function Header() {
           } absolute top-16 left-0 w-full bg-[#222222] md:bg-transparent md:static md:flex md:items-center md:justify-center`}
         >
           <ul className="flex flex-col md:flex-row items-center text-2xl gap-5 p-4 md:p-0">
+          
             <li className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
               <Link to="/">Home</Link>
             </li>
@@ -54,8 +57,8 @@ function Header() {
           </li>
           <li className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
             <Link to="/contact">Contact</Link>
-          </li>
-        </ul> */}
+            </li>
+            </ul> */}
       </div>
       <div>
         <div className="flex items-center justify-center text-2xl gap-5">
@@ -70,6 +73,8 @@ function Header() {
         </div>
       </div>
     </div>
+    {<Hero slide={menu} />}
+            </>
   );
 }
 
