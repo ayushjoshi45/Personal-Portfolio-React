@@ -1,14 +1,17 @@
-import React from 'react';
-import heroimg from "../utils/hero.jpg"
-import { TypeAnimation } from 'react-type-animation';
+import React from "react";
+import heroimg from "../utils/hero.jpg";
+import { TypeAnimation } from "react-type-animation";
 
-function Hero({slide,height}) {
+function Hero({ slide, height }) {
+  
   return (
-    // <div className={`w-full h-screen text-white flex flex-col lg:flex-row justify-between items-center px-4 lg:px-16 ${slide ? "mt-[80%]":"mt-[40%] sm:mt-0"}`}>
     <div
-    className={`w-full h-screen text-white flex flex-col lg:flex-row justify-between items-center px-4 lg:px-16 ${slide ? "mt-[80%]" : "sm:mt-0"}`}
-    style={{ marginTop: slide ? `calc(${height}px + 50px)` : '40%' }} // Use inline styles for dynamic margin-top
-  >
+    style={{
+      marginTop: slide ? `calc(${height}px + 50px)` : "0", 
+    }}
+      className={`w-full h-screen text-white flex flex-col lg:flex-row justify-between items-center px-4 lg:px-16`}
+      
+    >
       {/* Left Section */}
       <div className="text-center lg:text-left mb-8 lg:mb-0">
         <h1 className="text-4xl lg:text-5xl mb-4">Hello 👋</h1>
@@ -18,15 +21,15 @@ function Hero({slide,height}) {
 
         <TypeAnimation
           sequence={[
-            'Software Engineer',
-            'Front-end Developer',
+            "Software Engineer",
+            "Front-end Developer",
             1000,
-            'Freelancer',
+            "Freelancer",
             1000,
           ]}
           wrapper="span"
           speed={10}
-          style={{ fontSize: '1.5em', display: 'inline-block' }}
+          style={{ fontSize: "1.5em", display: "inline-block" }}
           repeat={Infinity}
           className="text-[#6200EE] mb-4"
         />
