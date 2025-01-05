@@ -9,7 +9,7 @@ function Hero({ slide, height }) {
     style={{
       marginTop: slide ? `calc(${height}px + 50px)` : "0", 
     }}
-      className={`w-full h-screen text-white flex flex-col lg:flex-row justify-between items-center px-4 lg:px-16`}
+      className={`w-full h-screen text-white flex flex-col lg:flex-row justify-between items-center py-[50%] md:py-4 lg:py-16`}
       
     >
       {/* Left Section */}
