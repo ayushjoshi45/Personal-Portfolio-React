@@ -9,9 +9,7 @@ function App() {
       <div className='w-[85%]'>
       {<Header/>}
       {<Project/>}
-      <Routes>
-        <Route path="/contact" element={<Contact/>} />
-      </Routes>
+      {<Contact/>}
     </div>
     </div>
   )
