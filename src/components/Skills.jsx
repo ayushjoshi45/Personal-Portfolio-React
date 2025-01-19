@@ -6,16 +6,16 @@ function Skills() {
     { name: "CSS3", color: "#2965F1", logo: "https://cdn-icons-png.flaticon.com/512/732/732190.png" },
     { name: "JavaScript", color: "#F7DF1E", logo: "https://cdn-icons-png.flaticon.com/512/5968/5968292.png" },
     { name: "React", color: "#61DAFB", logo: "https://cdn-icons-png.flaticon.com/512/1126/1126012.png" },
-    { name: "Next.js", color: "#000000", logo: "https://cdn-icons-png.flaticon.com/512/888/888841.png" },
-    { name: "Express", color: "#404040", logo: "https://cdn-icons-png.flaticon.com/512/873/873120.png" },
-    { name: "MongoDB", color: "#47A248", logo: "https://cdn-icons-png.flaticon.com/512/919/919836.png" },
-    { name: "SQL", color: "#00758F", logo: "https://cdn-icons-png.flaticon.com/512/1199/1199125.png" },
+    { name: "Next.js", color: "#000000", logo: "https://www.svgrepo.com/show/376337/node-js.svg" },
+    { name: "Express", color: "#404040", logo: "https://www.svgrepo.com/show/330398/express.svg" },
+    { name: "MongoDB", color: "#47A248", logo: "https://www.svgrepo.com/show/331488/mongodb.svg" },
+    { name: "SQL", color: "#00758F", logo: "https://cdn-icons-png.flaticon.com/512/919/919836.png" },
   ];
 
   return (
     <div className="w-full mx-auto py-12 px-1 lg:px-0">
       <h1 className="text-4xl font-bold text-white text-center mb-8">My Skills</h1>
-      <div className="bg-[#222222] p-6 rounded-lg shadow-lg">
+      <div className="bg-[#222222] p-6 rounded-lg shadow-lg overflow-y-auto max-h-[500px]">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {skills.map((skill, index) => (
             <div

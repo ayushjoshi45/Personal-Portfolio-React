@@ -14,15 +14,15 @@ function Hero({ slide, height }) {
     >
       {/* Left Section */}
       <div className="text-center lg:text-left mb-8 lg:mb-0">
-        <h1 className="text-4xl lg:text-5xl mb-4">Hello 👋</h1>
-        <h1 className="text-4xl lg:text-5xl mb-4">
+        <h1 className="text-4xl lg:text-6xl mb-4">Hello 👋</h1>
+        <h1 className="text-4xl lg:text-6xl mb-4">
           I'm <span className="text-[#6200EE]">Ayush</span>
         </h1>
 
         <TypeAnimation
           sequence={[
             "Software Engineer",
-            "Front-end Developer",
+            "FullStack Developer",
             1000,
             "Freelancer",
             1000,
