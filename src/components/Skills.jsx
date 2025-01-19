@@ -13,7 +13,7 @@ function Skills() {
   ];
 
   return (
-    <div className="w-full mx-auto py-12 px-4 lg:px-0">
+    <div className="w-full mx-auto py-12 px-1 lg:px-0">
       <h1 className="text-4xl font-bold text-white text-center mb-8">My Skills</h1>
       <div className="bg-[#222222] p-6 rounded-lg shadow-lg">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">

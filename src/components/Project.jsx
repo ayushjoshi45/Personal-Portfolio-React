@@ -28,7 +28,7 @@ function Project() {
   ];
 
   return (
-    <div className="text-white px-4 md:px-8 lg:px-0 ]">
+    <div className="text-white px-1 md:px-8 lg:px-0 ]">
       <div>
         <h1 className="font-bold text-3xl text-center">Projects</h1>
       </div>
