@@ -9,7 +9,7 @@ import Skills from './components/Skills'
 function App() {
   return (
     <div className='bg-[#0B0B0B] h-full flex justify-center'>
-      <div className='w-[85%]'>
+      <div className='w-[80%]'>
       {<Header/>}
       {<Project/>}
       {<Skills/>}
