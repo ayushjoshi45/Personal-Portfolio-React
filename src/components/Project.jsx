@@ -1,22 +1,23 @@
 import React from 'react';
-import project1 from '../utils/project1.png';
+import RentalMarketplace from '../utils/RentalMarketplace.png';
 import project2 from '../utils/project2.png';
+import Image from '../utils/jobPortel.png';
 
 function Project() {
   const details = [
     {
-      img: 'https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      projectname: 'TravelNest',
-      projectdes: 'TravelNest is a travel discovery platform that allows users to explore the latest vacation rentals, view property details, ratings, and photos, all designed to make travel planning seamless. It offers an easy-to-use interface for searching stays by location, price, or amenities. Perfect for travelers to find their perfect getaway spot.',
-      demo: 'https://movies-flick.netlify.app/',
-      sourceCode: 'https://github.com/ayushjoshi45/Airbnb-Full-Stack-Project',
+      img: Image,
+      projectname: 'JobPortel',
+      projectdes: 'JobPortel is a job-seeking platform that helps candidates discover and apply to the latest job opportunities. Users can browse openings by role, location, and skills, view detailed company profiles, and track application status. It features a simple, intuitive interface for both job seekers and recruiters, making the hiring and application process seamless and efficient.',
+      demo: 'https://github.com/ayushjoshi45/Job-Portal',
+      sourceCode: 'https://github.com/ayushjoshi45/Job-Portal',
     },
     {
-      img: project1,
-      projectname: 'Movies-flix',
-      projectdes: 'MoviesFlick is a movie discovery platform that allows users to explore the latest films, view movie details, ratings, and trailers, all powered by the TMDB API. It offers an easy-to-use interface for searching movies by title, genre, or actor. Perfect for movie enthusiasts to stay up-to-date with trending films.',
-      demo: 'https://movies-flick.netlify.app/',
-      sourceCode: 'https://github.com/ayushjoshi45/MoviesFlick',
+      img: RentalMarketplace,
+      projectname: 'StayEase',
+      projectdes: 'StayEase is a property rental and review platform that allows users to list accommodations, explore available stays, and share feedback. Users can browse listings with photos, amenities, and pricing details, while guests can leave reviews and ratings. It provides an intuitive interface for hosts to manage their properties and travelers to find the perfect stay.',
+      demo: 'https://airbnb-full-stack-project-by9j.onrender.com/',
+      sourceCode: 'https://github.com/ayushjoshi45/Airbnb-Full-Stack-Project',
     },
     {
       img: project2,

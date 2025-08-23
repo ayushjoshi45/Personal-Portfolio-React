@@ -35,8 +35,8 @@ function Hero({ slide, height }) {
         />
 
         <p className="text-lg lg:text-xl w-full lg:w-[45%] h-full">
-          Based in INDIA, I'm a front-end developer passionate about building
-          accessible web apps that users love.
+          Based in INDIA, I'm a Full Stack Developer passionate about building
+          accessible web Product that users love.
         </p>
       </div>
 
