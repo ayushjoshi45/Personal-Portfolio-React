@@ -11,6 +11,10 @@ function Header() {
       setMenuh(menuHeight)  // You can use this height for any logic
     }
   }, [menu]);
+
+  const handleScroll = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <div className="text-white flex items-center justify-between mt-4">
@@ -39,19 +43,20 @@ function Header() {
             <ul
             ref={menuRef}
              className="flex flex-col md:flex-row items-center text-2xl gap-5 p-4 md:p-0">
-              <li className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
-                <Link to="/">Home</Link>
+              <li onClick={() => handleScroll("home")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              Home
               </li>
-              <li className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
-                <Link to="/work">Work</Link>
+              <li onClick={() => handleScroll("project")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              Work
               </li>
-              <li className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
-                <Link to="/about">About</Link>
+              <li onClick={() => handleScroll("skills")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              Skills
               </li>
-              <li className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
-                <Link to="/contact" target="_blank">
-                  Contact
-                </Link>
+              <li onClick={() => handleScroll("about")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              About
+              </li>
+              <li onClick={() => handleScroll("contact")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+               Contact
               </li>
             </ul>
           </div>

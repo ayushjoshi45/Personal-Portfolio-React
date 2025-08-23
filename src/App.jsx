@@ -11,10 +11,10 @@ function App() {
     <div className='bg-[#0B0B0B] h-full flex justify-center'>
       <div className='w-[80%]'>
       {<Header/>}
-      {<Project/>}
-      {<Skills/>}
-      {<About/>}
-      {<Contact/>}
+      <section id="project">{<Project/>}</section>
+      <section id="skills">{<Skills/>}</section>
+      <section id="about">{<About/>}</section>
+      <section id="contact">{<Contact/>}</section>
     </div>
     </div>
   )
