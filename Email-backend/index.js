@@ -9,14 +9,19 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 
-const allowedOrigins = ["https://ayush-portfolio-react-js.netlify.app/"];
+const allowedOrigins = [
+  "https://ayush-portfolio-react-js.netlify.app",
+  "http://localhost:3000"
+];
 
 // Enable CORS for only your frontend
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+  })
+);
 
 // Create transporter using Gmail service
 const transporter = nodemailer.createTransport({
