@@ -43,19 +43,19 @@ function Header() {
             <ul
             ref={menuRef}
              className="flex flex-col md:flex-row items-center text-2xl gap-5 p-4 md:p-0">
-              <li onClick={() => handleScroll("home")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              <li onClick={() => handleScroll("home")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full cursor-pointer">
               Home
               </li>
-              <li onClick={() => handleScroll("project")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              <li onClick={() => handleScroll("project")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full cursor-pointer">
               Work
               </li>
-              <li onClick={() => handleScroll("skills")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              <li onClick={() => handleScroll("skills")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full cursor-pointer">
               Skills
               </li>
-              <li onClick={() => handleScroll("about")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              <li onClick={() => handleScroll("about")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full cursor-pointer">
               About
               </li>
-              <li onClick={() => handleScroll("contact")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full">
+              <li onClick={() => handleScroll("contact")} className="px-5 py-2 hover:bg-[#6200EE] rounded-full cursor-pointer">
                Contact
               </li>
             </ul>
@@ -78,12 +78,10 @@ function Header() {
         </div>
         <div>
           <div className="flex items-center justify-center text-2xl gap-5">
-            {/* <Link to="https://x.com/ayushjoshi45"><i className="ri-twitter-x-line rounded-full bg-black px-2 py-2"></i></Link> */}
-            {/* <Link to="https://www.linkedin.com/in/ayush-joshi-439470252/"><i className="ri-linkedin-line rounded-full bg-black px-2 py-2"></i></Link> */}
             <Link to="https://github.com/ayushjoshi45">
               <i className="ri-github-line rounded-full bg-black px-2 py-2"></i>
             </Link>
-            <button className="px-4 py-2 bg-[#6200EE] rounded-full hover:bg-[#7B1EFF] hover:scale-105 transition-transform duration-600 ease-in-out ">
+            <button onClick={()=>handleScroll("contact")} className="px-4 py-2 bg-[#6200EE] rounded-full hover:bg-[#7B1EFF] hover:scale-105 transition-transform duration-600 ease-in-out cursor-pointer ">
               Hire Me
             </button>
           </div>
