@@ -16,7 +16,7 @@ const handleSubmit = async (e) => {
   setLoading(true);
   try {
     console.log(formData);
-    await axios.post("http://localhost:8000/sendMail", formData, {
+    await axios.post("https://personal-portfolio-react-backend.onrender.com/sendMail", formData, {
       headers: {
         "Content-Type": "application/json",
       },
