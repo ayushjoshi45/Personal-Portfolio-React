@@ -7,7 +7,16 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+
+const allowedOrigins = ["https://ayush-portfolio-react-js.netlify.app/"];
+
+// Enable CORS for only your frontend
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  credentials: true
+}));
 
 // Create transporter using Gmail service
 const transporter = nodemailer.createTransport({
