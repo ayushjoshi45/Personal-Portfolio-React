@@ -21,17 +21,30 @@ function About() {
             </svg>
           </summary>
           <p className="mt-4 text-gray-300 leading-7">
-            I specialize in creating dynamic and user-friendly applications,
-            with a strong focus on the MERN Stack and modern web technologies. I
-            enjoy exploring new technologies and turning ideas into reality, such
-            as my recent projects:
-            <span className="text-[#6200EE] font-bold"> MarketPlace Website</span>, 
-            where users can list their properties, and 
-            <span className="text-[#6200EE] font-bold"> MoviesFlick</span>, a
-            movie platform powered by the TMDB API.
+            I specialize in building dynamic and user-friendly applications,
+            with a strong focus on the MERN Stack and modern web technologies.
+            Over time, I’ve worked on several projects that reflect both my
+            technical skills and creativity. Some of my favorites include:
             <br />
-            When I'm not coding, I love playing cricket and staying updated with
-            the latest tech trends.
+            - <span className="text-[#6200EE] font-bold">Job Portal</span> – a
+            platform that connects job seekers and recruiters with smooth
+            authentication and application management.
+            <br />
+            - <span className="text-[#6200EE] font-bold">Rental Marketplace</span> –
+            where users can list and browse properties with an interactive,
+            real-world experience.
+            <br />
+            - <span className="text-[#6200EE] font-bold">MoviesFlick</span> – a
+            movie discovery platform powered by the TMDB API.
+            <br />
+            - <span className="text-[#6200EE] font-bold">Bubble Hit Game</span> –
+            a fun JavaScript-based game where players score points by hitting
+            bubbles with matching numbers.
+            <br />
+            When I’m not coding, you’ll probably find me playing cricket or
+            exploring the latest trends in technology. I enjoy learning,
+            experimenting, and constantly pushing myself to build better
+            projects.
           </p>
         </details>
       </div>

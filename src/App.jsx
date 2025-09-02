@@ -9,7 +9,7 @@ import Skills from './components/Skills'
 function App() {
   return (
     <div className='bg-[#0B0B0B] h-full flex justify-center'>
-      <div className='w-[80%]'>
+      <div className='w-[90%] md:w-[80%]'>
       {<Header/>}
       <section id="project">{<Project/>}</section>
       <section id="skills">{<Skills/>}</section>

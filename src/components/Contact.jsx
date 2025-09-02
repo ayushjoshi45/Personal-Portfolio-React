@@ -49,9 +49,12 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-12 px-4">
-      <h1 className="text-4xl font-bold text-white text-center mb-6">Contact Us</h1>
-      <form onSubmit={handleSubmit} className="bg-[#222222] p-6 rounded-lg shadow-lg">
+    <div className="w-full max-w-4xl mx-auto py-12">
+      <div className="flex flex-col mb-6 gap-1">
+      <h1 className="text-4xl font-bold text-white text-center ">Get In Touch</h1>
+      <div className=" w-32 h-[5px] bg-[#6200EE] rounded mx-auto"></div>
+      </div>
+      <form onSubmit={handleSubmit} className="bg-[#222222] p-4 rounded-lg shadow-lg">
         <div className="flex flex-col gap-6">
           <input
             type="text"
