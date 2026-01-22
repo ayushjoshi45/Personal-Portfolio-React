@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "lint": "eslint src/**/*.js"
+    "start": "node index.js",
+    "start:new": "node src/server.js",
+    "lint": "eslint src/**/*.js",
+    "test:local": "node test-backend.js http://localhost:8000",
+    "test:prod": "node test-backend.js https://personal-portfolio-react-backend.onrender.com"
   },
   "keywords": [],
   "author": "",

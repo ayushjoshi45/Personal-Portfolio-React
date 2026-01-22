@@ -25,13 +25,17 @@ app.use(
 
 // Create transporter using Gmail service
 const transporter = nodemailer.createTransport({
+  service: 'gmail',
   host: "smtp.gmail.com",
-  port: 587,
-  secure: false, 
+  port: 465,
+  secure: true, // Use SSL for better compatibility with cloud platforms
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
 
@@ -42,6 +46,15 @@ transporter.verify((error, success) => {
   } else {
     console.log("SMTP server is ready to send messages");
   }
+});
+
+// Health check route
+app.get("/", (req, res) => {
+  res.json({ success: true, message: "Email Backend is running", timestamp: new Date().toISOString() });
+});
+
+app.get("/health", (req, res) => {
+  res.json({ success: true, message: "Healthy", timestamp: new Date().toISOString() });
 });
 
 // Email route
