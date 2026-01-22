@@ -1,23 +1,34 @@
-import React from 'react'
-import Header from "./components/Header"
-import Project from './components/Project'
-import Contact from './components/Contact'
-import {Route,Router,Routes } from 'react-router-dom'
-import About from './components/About'
-import Skills from './components/Skills'
+/**
+ * Main App Component
+ */
+
+import React from 'react';
+import { ErrorBoundary } from './components/common';
+import MainLayout from './layouts/MainLayout';
+import Project from './components/Project/Project';
+import Skills from './components/Skills/Skills';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 
 function App() {
   return (
-    <div className='bg-[#0B0B0B] h-full flex justify-center'>
-      <div className='w-[90%] md:w-[80%]'>
-      {<Header/>}
-      <section id="project">{<Project/>}</section>
-      <section id="skills">{<Skills/>}</section>
-      <section id="about">{<About/>}</section>
-      <section id="contact">{<Contact/>}</section>
-    </div>
-    </div>
-  )
+    <ErrorBoundary>
+      <MainLayout>
+        <section id="project">
+          <Project />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </MainLayout>
+    </ErrorBoundary>
+  );
 }
 
-export default App
+export default App;
