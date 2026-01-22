@@ -9,6 +9,8 @@ import { requestLogger } from './middleware/logger.middleware.js';
 import { errorHandler, notFoundHandler } from './middleware/error.middleware.js';
 import routes from './routes/index.js';
 import emailService from './services/email.service.js';
+import { sendContactEmail } from './controllers/email.controller.js';
+import { validateContactForm } from './middleware/validation.middleware.js';
 
 const app = express();
 
@@ -18,14 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 app.use(requestLogger);
 
-// Initialize email service
-await emailService.verifyConnection();
-
 // Routes
 app.use('/api', routes);
 
-// Legacy route for backward compatibility
-app.post('/sendMail', routes);
+// Legacy route at root level for backward compatibility
+app.post('/sendMail', validateContactForm, sendContactEmail);
 
 // Error Handling
 app.use(notFoundHandler);

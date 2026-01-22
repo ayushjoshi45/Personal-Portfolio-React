@@ -3,10 +3,15 @@
  */
 
 import dotenv from 'dotenv';
-import app from './app.js';
 
-// Load environment variables
+// Load environment variables FIRST before importing anything else
 dotenv.config();
+
+import app from './app.js';
+import emailService from './services/email.service.js';
+
+// Verify email connection
+await emailService.verifyConnection();
 
 const PORT = process.env.PORT || 8000;
 const NODE_ENV = process.env.NODE_ENV || 'development';

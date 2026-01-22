@@ -3,11 +3,22 @@
  */
 
 import nodemailer from 'nodemailer';
-import { emailConfig, emailOptions } from '../config/email.config.js';
+import { getEmailConfig, getEmailOptions } from '../config/email.config.js';
 
 class EmailService {
   constructor() {
-    this.transporter = nodemailer.createTransport(emailConfig);
+    // Don't create transporter in constructor
+    this.transporter = null;
+  }
+  
+  /**
+   * Get or create transporter (lazy initialization)
+   */
+  getTransporter() {
+    if (!this.transporter) {
+      this.transporter = nodemailer.createTransport(getEmailConfig());
+    }
+    return this.transporter;
   }
 
   /**
@@ -15,7 +26,7 @@ class EmailService {
    */
   async verifyConnection() {
     try {
-      await this.transporter.verify();
+      await this.getTransporter().verify();
       console.log('✅ SMTP server is ready to send messages');
       return true;
     } catch (error) {
@@ -29,6 +40,7 @@ class EmailService {
    */
   async sendContactEmail({ name, email, message }) {
     try {
+      const emailOptions = getEmailOptions();
       const mailOptions = {
         from: `"${name}" <${emailOptions.from}>`,
         to: emailOptions.to,
@@ -81,7 +93,7 @@ ${message}
         `,
       };
 
-      const info = await this.transporter.sendMail(mailOptions);
+      const info = await this.getTransporter().sendMail(mailOptions);
       console.log('📧 Email sent successfully:', info.messageId);
       return info;
     } catch (error) {
