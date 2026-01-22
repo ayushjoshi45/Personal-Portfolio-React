@@ -9,7 +9,7 @@ export const APP_CONFIG = {
 };
 
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000',
+  BASE_URL: import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolio-react-backend.onrender.com',
   TIMEOUT: 10000,
 };
 
