@@ -11,7 +11,12 @@ app.use(express.json());
 
 const allowedOrigins = [
   "https://ayush-portfolio-react-js.netlify.app",
-  "http://localhost:3000"
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "http://ayushjoshi.tech",
+  "https://ayushjoshi.tech",
+  "http://www.ayushjoshi.tech",
+  "https://www.ayushjoshi.tech"
 ];
 
 // Enable CORS for only your frontend
