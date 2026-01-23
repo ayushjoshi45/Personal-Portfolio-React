@@ -18,10 +18,12 @@ const Contact = () => {
 
   const handleSubmit = async (formData) => {
     try {
+      setToast({ message: 'Sending... This may take up to 60 seconds ⏳', type: 'info' });
       await apiService.sendEmail(formData);
       setToast({ message: 'Message sent successfully! 🎉', type: 'success' });
     } catch (error) {
-      setToast({ message: 'Failed to send message. Please try again. 😢', type: 'error' });
+      const errorMessage = error.message || 'Failed to send message. Please try again. 😢';
+      setToast({ message: errorMessage, type: 'error' });
       throw error;
     }
   };

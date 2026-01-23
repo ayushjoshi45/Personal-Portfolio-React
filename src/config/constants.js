@@ -10,7 +10,7 @@ export const APP_CONFIG = {
 
 export const API_CONFIG = {
   BASE_URL: import.meta.env.VITE_API_BASE_URL || 'https://personal-portfolio-react-backend.onrender.com',
-  TIMEOUT: 10000,
+  TIMEOUT: 60000, // 60 seconds for Render free tier cold starts
 };
 
 export const ROUTES = {

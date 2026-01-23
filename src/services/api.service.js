@@ -6,9 +6,19 @@
 import axios from 'axios';
 import { API_CONFIG } from '../config/constants';
 
+// Determine base URL based on environment
+const getBaseURL = () => {
+  // In development, use Vite proxy
+  if (import.meta.env.DEV) {
+    return '/api';
+  }
+  // In production, use the actual backend URL
+  return API_CONFIG.BASE_URL;
+};
+
 // Create axios instance with default config
 const apiClient = axios.create({
-  baseURL: API_CONFIG.BASE_URL,
+  baseURL: getBaseURL(),
   timeout: API_CONFIG.TIMEOUT,
   headers: {
     'Content-Type': 'application/json',
@@ -42,15 +52,38 @@ apiClient.interceptors.response.use(
  */
 export const apiService = {
   /**
-   * Send contact form email
+   * Wake up the backend (useful for Render free tier)
+   * @returns {Promise}
+   */
+  wakeUp: async () => {
+    try {
+      const response = await apiClient.get('/', { timeout: 60000 });
+      return response;
+    } catch (error) {
+      console.warn('Wake up request failed:', error.message);
+      // Don't throw error, as this is just a wake-up call
+      return null;
+    }
+  },
+
+  /**
+   * Send contact form email with wake-up call
    * @param {Object} data - Form data (name, email, message)
    * @returns {Promise}
    */
   sendEmail: async (data) => {
     try {
-      const response = await apiClient.post('/sendMail', data);
+      // First, try to wake up the backend if it's sleeping
+      console.log('Waking up backend...');
+      await apiService.wakeUp();
+      
+      console.log('Sending email...');
+      const response = await apiClient.post('/sendMail', data, { timeout: 60000 });
       return response;
     } catch (error) {
+      if (error.code === 'ECONNABORTED') {
+        throw new Error('Request timeout. The server might be waking up. Please try again.');
+      }
       throw error;
     }
   },

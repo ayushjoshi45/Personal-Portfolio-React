@@ -9,7 +9,7 @@ const Experience = () => {
     {
       company: 'Fitmedik',
       role: 'SDE Intern',
-      location: 'Virtual',
+      location: 'Remote',
       duration: 'Jan 2026 - Present',
       period: '1 month',
       type: 'Current',
@@ -24,7 +24,7 @@ const Experience = () => {
     {
       company: 'Mark My Ad',
       role: 'Full Stack Engineer',
-      location: 'Virtual',
+      location: 'Remote',
       duration: 'Oct 2025 - Jan 2026',
       period: '3 months',
       type: 'Completed',
