@@ -1,14 +1,14 @@
 import express from "express";
-import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import { Resend } from "resend";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-// app.use(cors());
 
+// Allowed origins
 const allowedOrigins = [
   "https://ayush-portfolio-react-js.netlify.app",
   "http://localhost:3000",
@@ -19,70 +19,102 @@ const allowedOrigins = [
   "https://www.ayushjoshi.tech"
 ];
 
-// Enable CORS for only your frontend
+// CORS configuration
 app.use(
   cors({
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "OPTIONS"],
     credentials: true
   })
 );
 
-// Create transporter using Gmail service
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // Use SSL for better compatibility with cloud platforms
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
-});
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-
-// Verify transporter
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("SMTP connection failed:", error);
-  } else {
-    console.log("SMTP server is ready to send messages");
-  }
-});
-
-// Health check route
+// Health check routes
 app.get("/", (req, res) => {
-  res.json({ success: true, message: "Email Backend is running", timestamp: new Date().toISOString() });
+  res.json({ 
+    success: true, 
+    message: "Portfolio Email API is running", 
+    timestamp: new Date().toISOString() 
+  });
 });
 
 app.get("/health", (req, res) => {
-  res.json({ success: true, message: "Healthy", timestamp: new Date().toISOString() });
+  res.json({ 
+    success: true, 
+    message: "Healthy", 
+    timestamp: new Date().toISOString() 
+  });
 });
 
-// Email route
+// Send email endpoint
 app.post("/sendMail", async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
-    const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // receive emails at your own Gmail
-      subject: "New message from portfolio",
-      text: `From: ${name}\nEmail: ${email}\n\n${message}`,
-    };
+    // Validate input
+    if (!name || !email || !message) {
+      return res.status(400).json({ 
+        success: false, 
+        message: "All fields are required" 
+      });
+    }
 
-    const info = await transporter.sendMail(mailOptions);
-    // console.log("Message sent:", info.messageId);
+    // Send email using Resend
+    const data = await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: process.env.RECEIVER_EMAIL,
+      replyTo: email,
+      subject: `New Portfolio Message from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #6200EE;">New Contact Form Submission</h2>
+          <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+          </div>
+          <div style="background-color: #fff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <p><strong>Message:</strong></p>
+            <p style="line-height: 1.6;">${message.replace(/\n/g, '<br>')}</p>
+          </div>
+          <p style="color: #666; font-size: 12px; margin-top: 20px;">This email was sent from your portfolio contact form.</p>
+        </div>
+      `,
+    });
 
-    res.status(200).json({ success: true, message: "Email sent successfully" });
+    console.log("Email sent successfully:", data);
+    res.status(200).json({ 
+      success: true, 
+      message: "Email sent successfully" 
+    });
   } catch (error) {
     console.error("Error sending email:", error);
-    res.status(500).json({ success: false, message: "Failed to send email" });
+    res.status(500).json({ 
+      success: false, 
+      message: "Failed to send email. Please try again." 
+    });
   }
 });
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ 
+    success: false, 
+    message: "Something went wrong!" 
+  });
+});
+
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`\n✅ Server running on port ${PORT}`);
+  console.log(`📧 Using Resend for email delivery`);
+  console.log(`⏰ Started at: ${new Date().toLocaleString()}\n`);
+});

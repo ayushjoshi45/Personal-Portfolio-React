@@ -2,7 +2,7 @@
  * Email Service
  */
 
-import nodemailer from 'nodemailer';
+// import nodemailer from 'nodemailer';
 import { getEmailConfig, getEmailOptions } from '../config/email.config.js';
 
 class EmailService {
