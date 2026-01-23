@@ -7,6 +7,7 @@ import { ErrorBoundary } from './components/common';
 import MainLayout from './layouts/MainLayout';
 import Project from './components/Project/Project';
 import Skills from './components/Skills/Skills';
+import Experience from './components/Experience/Experience';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 
@@ -19,6 +20,9 @@ function App() {
         </section>
         <section id="skills">
           <Skills />
+        </section>
+        <section id="experience">
+          <Experience />
         </section>
         <section id="about">
           <About />

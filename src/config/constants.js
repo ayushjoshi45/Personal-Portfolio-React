@@ -17,6 +17,7 @@ export const ROUTES = {
   HOME: '/',
   PROJECTS: '#project',
   SKILLS: '#skills',
+  EXPERIENCE: '#experience',
   ABOUT: '#about',
   CONTACT: '#contact',
 };
@@ -39,6 +40,7 @@ export const NAVIGATION_ITEMS = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'project', label: 'Work', href: '#project' },
   { id: 'skills', label: 'Skills', href: '#skills' },
+  { id: 'experience', label: 'Experience', href: '#experience' },
   { id: 'about', label: 'About', href: '#about' },
   { id: 'contact', label: 'Contact', href: '#contact' },
 ];
