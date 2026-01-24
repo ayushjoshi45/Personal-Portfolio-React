@@ -7,7 +7,7 @@ function About() {
       <div className="bg-[#222222] p-6 rounded-lg shadow-lg">
         <details className="group">
           <summary className="text-xl font-semibold text-white cursor-pointer flex justify-between items-center hover:text-gray-300 transition duration-300">
-            Hi, I'm Ayush Joshi, a passionate web developer from Nainital,
+            Hi, I'm Ayush Joshi, a passionate web developer from Pithoragarh,
             Uttarakhand.
             <svg
               xmlns="http://www.w3.org/2000/svg"

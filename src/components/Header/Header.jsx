@@ -34,7 +34,7 @@ const Header = () => {
           ? 'py-3 backdrop-blur-md bg-[#0B0B0B]/80 border-b border-purple-500/20 shadow-lg shadow-purple-500/10' 
           : 'py-4 bg-transparent'
       }`}>
-        <div className="w-[90%] md:w-[80%] max-w-7xl mx-auto flex items-center justify-between">
+        <div className="w-[90%] md:w-[85%] max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <div className="relative group">
             <div className="text-3xl font-bold flex items-center gap-2 cursor-pointer">

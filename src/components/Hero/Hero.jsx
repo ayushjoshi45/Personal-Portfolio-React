@@ -18,7 +18,7 @@ const Hero = ({ isMenuOpen }) => {
         <div className="absolute w-96 h-96 bg-blue-600/10 rounded-full blur-3xl bottom-20 -right-48 animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="relative w-full min-h-screen flex flex-col lg:flex-row justify-between items-center py-[50%] md:py-4 lg:py-16 gap-8">
+      <div className="relative w-full min-h-screen flex flex-col lg:flex-row justify-between items-center py-[50%] md:py-8 lg:py-20 gap-8 px-4">
         {/* Left Section */}
         <div className="text-center lg:text-left mb-8 lg:mb-0 z-10 animate-fade-in-up">
           <div className="inline-block mb-4">

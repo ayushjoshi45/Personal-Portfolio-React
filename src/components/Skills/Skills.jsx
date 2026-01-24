@@ -91,6 +91,12 @@ const Skills = () => {
           logo: 'https://cdn-icons-png.flaticon.com/512/733/733553.png',
         },
         {
+          name: 'Postman',
+          level: '85%',
+          color: '#FF6C37',
+          logo: 'https://www.svgrepo.com/show/354202/postman-icon.svg',
+        },
+        {
           name: 'Docker',
           level: '70%',
           color: '#2496ED',
@@ -101,7 +107,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="w-full mx-auto py-20 px-1 lg:px-0">
+    <div className="w-full mx-auto py-20">
       {/* Section Header */}
       <div className="flex flex-col mb-16 gap-4 animate-fade-in-up">
         <div className="flex items-center justify-center gap-3">
@@ -199,7 +205,7 @@ const Skills = () => {
       {/* Bottom Stats */}
       <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up">
         <div className="text-center p-6 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] rounded-2xl border border-purple-500/30">
-          <div className="text-4xl font-bold gradient-text">12+</div>
+          <div className="text-4xl font-bold gradient-text">13+</div>
           <div className="text-gray-400 mt-2">Technologies</div>
         </div>
         <div className="text-center p-6 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] rounded-2xl border border-blue-500/30">

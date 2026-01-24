@@ -8,11 +8,7 @@ import { API_CONFIG } from '../config/constants';
 
 // Determine base URL based on environment
 const getBaseURL = () => {
-  // In development, use Vite proxy
-  if (import.meta.env.DEV) {
-    return '/api';
-  }
-  // In production, use the actual backend URL
+  // Always use the backend URL directly (simpler and more reliable)
   return API_CONFIG.BASE_URL;
 };
 
@@ -73,14 +69,25 @@ export const apiService = {
    */
   sendEmail: async (data) => {
     try {
+      console.log('📧 Sending email with data:', data);
+      console.log('🌐 Backend URL:', API_CONFIG.BASE_URL);
+      
       // First, try to wake up the backend if it's sleeping
-      console.log('Waking up backend...');
+      console.log('⏰ Waking up backend...');
       await apiService.wakeUp();
       
-      console.log('Sending email...');
+      console.log('📤 Sending email request...');
       const response = await apiClient.post('/sendMail', data, { timeout: 60000 });
+      console.log('✅ Email sent successfully:', response);
       return response;
     } catch (error) {
+      console.error('❌ Error sending email:', error);
+      console.error('Error details:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status
+      });
+      
       if (error.code === 'ECONNABORTED') {
         throw new Error('Request timeout. The server might be waking up. Please try again.');
       }

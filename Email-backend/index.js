@@ -56,21 +56,30 @@ app.get("/health", (req, res) => {
 
 // Send email endpoint
 app.post("/sendMail", async (req, res) => {
+  console.log('\n📬 Received email request');
+  console.log('Request body:', req.body);
+  console.log('Request headers:', req.headers);
+  
   try {
     const { name, email, message } = req.body;
 
     // Validate input
     if (!name || !email || !message) {
+      console.log('❌ Validation failed: Missing fields');
       return res.status(400).json({ 
         success: false, 
         message: "All fields are required" 
       });
     }
+    
+    console.log('✅ Validation passed');
+    console.log('From:', name, '(' + email + ')');
+    console.log('Message:', message.substring(0, 50) + '...');
 
-    // Send email using Resend
+        // Send email using Resend
     const data = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
-      to: process.env.RECEIVER_EMAIL,
+      to: process.env.RECEIVER_EMAIL || "ayushjoshi3725@gmail.com",
       replyTo: email,
       subject: `New Portfolio Message from ${name}`,
       html: `

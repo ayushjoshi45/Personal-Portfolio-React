@@ -23,7 +23,7 @@ const Experience = () => {
     },
     {
       company: 'Mark My Ad',
-      role: 'Full Stack Engineer',
+      role: 'Full Stack Internship',
       location: 'Remote',
       duration: 'Oct 2025 - Jan 2026',
       period: '3 months',
@@ -41,7 +41,7 @@ const Experience = () => {
   ];
 
   return (
-    <div className="w-full mx-auto py-20 px-1 lg:px-0">
+    <div className="w-full mx-auto py-20">
       {/* Section Header */}
       <div className="flex flex-col mb-16 gap-4 animate-fade-in-up">
         <div className="flex items-center justify-center gap-3">

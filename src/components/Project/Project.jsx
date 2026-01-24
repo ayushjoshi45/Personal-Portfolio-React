@@ -41,7 +41,7 @@ const Project = () => {
   ];
 
   return (
-    <div className="text-white px-1 md:px-8 lg:px-0 py-20">
+    <div className="text-white py-20">
       {/* Section Header */}
       <div className="flex flex-col mb-16 gap-4 animate-fade-in-up">
         <div className="flex items-center justify-center gap-3">

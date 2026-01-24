@@ -60,38 +60,15 @@ portfolio/
 │   ├── main.jsx                               # React entry point
 │   └── index.css                              # Global styles with Tailwind
 │
-├── 📂 Email-backend/                          # Backend API server
+├── 📂 Email-backend/                          # Backend API server (Simple)
 │   │
-│   ├── 📂 src/                                # Backend source code
-│   │   │
-│   │   ├── 📂 config/                         # Server configuration
-│   │   │   ├── email.config.js                # Email/SMTP settings
-│   │   │   ├── cors.config.js                 # CORS configuration
-│   │   │   └── rateLimit.config.js            # Rate limiting settings
-│   │   │
-│   │   ├── 📂 controllers/                    # Request handlers
-│   │   │   └── email.controller.js            # Email sending logic
-│   │   │
-│   │   ├── 📂 middleware/                     # Express middleware
-│   │   │   ├── validation.middleware.js       # Input validation
-│   │   │   ├── error.middleware.js            # Error handling
-│   │   │   └── logger.middleware.js           # Request logging
-│   │   │
-│   │   ├── 📂 routes/                         # API routes
-│   │   │   ├── email.routes.js                # Email endpoints
-│   │   │   ├── health.routes.js               # Health check
-│   │   │   └── index.js                       # Routes aggregator
-│   │   │
-│   │   ├── 📂 services/                       # Business logic
-│   │   │   └── email.service.js               # Email service with Nodemailer
-│   │   │
-│   │   ├── app.js                             # Express app setup
-│   │   └── server.js                          # Server entry point
-│   │
-│   ├── .env.example                           # Environment variables template
+│   ├── index.js                               # Main server file (Express + Resend)
+│   ├── test-backend.js                        # Backend testing script
+│   ├── .env                                   # Environment variables (RESEND_API_KEY, RECEIVER_EMAIL)
+│   ├── .env.template                          # Environment template
 │   ├── .gitignore                             # Git ignore rules
 │   ├── package.json                           # Backend dependencies
-│   └── README.md                              # Backend documentation
+│   └── SETUP.md                               # Setup instructions
 │
 ├── 📂 public/                                 # Static public assets
 │   ├── DP_ROUND-preview.png                   # Favicon/Logo
@@ -143,28 +120,18 @@ portfolio/
 **Contact** (`src/components/Contact/`)
 - Contact.jsx: Contact form with API integration and validation
 
-### Backend Structure
+### Backend Structure (Simple)
 
-#### Configuration (`Email-backend/src/config/`)
-- **email.config.js**: SMTP settings for Nodemailer
-- **cors.config.js**: CORS allowed origins and settings
-- **rateLimit.config.js**: Rate limiting rules
-
-#### Controllers (`Email-backend/src/controllers/`)
-- **email.controller.js**: Handles email sending requests
-
-#### Middleware (`Email-backend/src/middleware/`)
-- **validation.middleware.js**: Validates and sanitizes input
-- **error.middleware.js**: Centralized error handling
-- **logger.middleware.js**: Logs incoming requests
-
-#### Routes (`Email-backend/src/routes/`)
-- **email.routes.js**: Email API endpoints
-- **health.routes.js**: Health check endpoint
-- **index.js**: Aggregates all routes
-
-#### Services (`Email-backend/src/services/`)
-- **email.service.js**: Email service with Nodemailer integration
+#### Main File (`Email-backend/index.js`)
+- **Express Server**: Lightweight server setup
+- **Resend Integration**: Fast email delivery using Resend API
+- **CORS Configuration**: Allows requests from allowed origins
+- **Routes**: 
+  - `GET /` - API status check
+  - `GET /health` - Health check endpoint
+  - `POST /sendMail` - Send contact form emails
+- **Error Handling**: Built-in error middleware
+- **Environment Variables**: RESEND_API_KEY, RECEIVER_EMAIL
 
 ## 🔄 Data Flow
 
@@ -179,17 +146,11 @@ useForm hook (manages state)
     ↓
 api.service.js (sends POST request)
     ↓
-Express app.js (receives request)
+Express server (index.js)
     ↓
-logger.middleware.js (logs request)
+Validates request data
     ↓
-validation.middleware.js (validates data)
-    ↓
-email.routes.js (routes to controller)
-    ↓
-email.controller.js (handles request)
-    ↓
-email.service.js (sends email via Nodemailer)
+Resend API (sends email in 1-3 seconds)
     ↓
 Response sent back to frontend
     ↓

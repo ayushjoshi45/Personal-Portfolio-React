@@ -24,8 +24,8 @@ export const ROUTES = {
 
 export const SOCIAL_LINKS = {
   GITHUB: 'https://github.com/ayushjoshi45',
-  LINKEDIN: '',
-  TWITTER: '',
+  LINKEDIN: 'https://www.linkedin.com/in/ayushjoshi45',
+  TWITTER: 'https://x.com/ayushjoshi45',
 };
 
 export const THEME_COLORS = {

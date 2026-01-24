@@ -38,7 +38,7 @@ const About = () => {
   ];
 
   return (
-    <div className="w-full mx-auto py-20 px-1 lg:px-0">
+    <div className="w-full mx-auto py-20">
       {/* Section Header */}
       <div className="flex flex-col mb-16 gap-4 animate-fade-in-up">
         <div className="flex items-center justify-center gap-3">
@@ -88,7 +88,7 @@ const About = () => {
                 </p>
                 <p>
                   A passionate <span className="text-purple-400 font-semibold">Full Stack Developer</span> from the beautiful hills of{' '}
-                  <span className="text-purple-400 font-semibold">Nainital, Uttarakhand</span>. My journey in web development is driven by curiosity and the desire to create meaningful digital experiences.
+                  <span className="text-purple-400 font-semibold">Pithoragarh, Uttarakhand</span>. My journey in web development is driven by curiosity and the desire to create meaningful digital experiences.
                 </p>
                 <p>
                   I specialize in building <span className="text-purple-400 font-semibold">dynamic and user-friendly applications</span> with a strong focus on the <span className="text-purple-400 font-semibold">MERN Stack</span> and modern web technologies.
