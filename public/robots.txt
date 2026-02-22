@@ -1,0 +1,28 @@
+# Robots.txt for Ayush Joshi Portfolio
+# https://ayushjoshi.tech
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ayushjoshi.tech/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin or private paths (if any)
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow search engines to index all public content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
